@@ -1,11 +1,11 @@
 import { chromium } from 'playwright';
 
-async function extract_images() {
+export async function extract_images(url: string) {
     const browser = await chromium.launch({ headless: false });
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    await page.goto('https://www.pinterest.com/search/pins/?q=ui%20design');
+    await page.goto(url);
     await page.waitForTimeout(3000); // optional delay
 
     // Get all <img> tags as outer HTML strings
@@ -13,9 +13,7 @@ async function extract_images() {
         imgs.map(img => img.outerHTML)
     );
 
-    console.log(imgTags); // prints an array of <img> tag HTML strings
-
     await browser.close();
-}
 
-main();
+    return imgTags;
+}

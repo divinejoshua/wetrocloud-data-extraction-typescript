@@ -43,29 +43,6 @@ const dribbble_data_extraction = async () => {
 };
 
 
-// Pinterest data extraction
-const pinterest_data_extraction = async () => {
-    console.log("Pinterest data extraction...");
-    const response = await fetch("https://api.wetrocloud.com/v2/data-extraction/", {
-        method: 'POST',
-        headers: {
-            'Authorization': `Token ${API_SECRET}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            website: "https://pinterest.com/pin/929923023062913036/",
-            delay:2,
-            request_query:"Extract the main image in this post",
-            json_schema:
-                { post_image: "The main Post image URL" }
-        })
-    });
-
-    const data = await response.json();
-    console.log("Pinterest data extraction:", JSON.stringify(data));
-};
-
 // Run the async function
 behance_data_extraction();
 dribbble_data_extraction();
-// pinterest_data_extraction();
