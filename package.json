@@ -1,0 +1,14 @@
+{
+  "name": "webscraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.0",
+    "playwright": "^1.53.2",
+    "wetro-sdk": "^2.0.0"
+  }
+}
