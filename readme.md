@@ -5,6 +5,6 @@
 <p>npx playwright install</p>
 
 
-#Wetrocloud
+## Wetrocloud
 
 Get your API key from https://console.wetrocloud.com/
