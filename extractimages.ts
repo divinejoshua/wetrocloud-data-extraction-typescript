@@ -15,7 +15,6 @@ export async function extract_images(url: string) {
         imgs => imgs.map(img => img.src)
     );
 
-    console.log(imgTags);
     await browser.close();
 
     return imgTags;
