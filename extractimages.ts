@@ -8,11 +8,14 @@ export async function extract_images(url: string) {
     await page.goto(url);
     await page.waitForTimeout(3000); // optional delay
 
-    // Get all <img> tags as outer HTML strings
-    const imgTags = await page.$$eval('img', imgs =>
-        imgs.map(img => img.outerHTML)
+    // Select all <img> tags inside the <div data-test-id="max-width-container">
+    const imgTags = await page.$$eval(
+        'div[data-test-id="max-width-container"] img',
+        // @ts-ignore
+        imgs => imgs.map(img => img.src)
     );
 
+    console.log(imgTags);
     await browser.close();
 
     return imgTags;
